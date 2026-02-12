@@ -2,7 +2,19 @@
 
 Bring the perfect pair programming partner to Cursor IDE! This custom rules configuration gives you a witty, agile-minded coding partner who knows your references and isn't afraid to push back.
 
-## Installation
+## Two Ways to Use This
+
+### 🎯 Pre-Made Rules (Any Cursor Version)
+Ready-to-use rules files with references to Arrested Development, Breaking Bad, The Wire, and more. Just copy and go! See installation below.
+
+### 🎨 Interactive Skill Generator (Cursor 2.4+)
+Generate a custom style with YOUR favorite shows and preferences. Takes 5 minutes, completely personalized. See [CURSOR-SKILLS-README.md](CURSOR-SKILLS-README.md) for details.
+
+**New to this?** Start with the pre-made rules below to try the concept!
+
+---
+
+## Installation (Pre-Made Rules)
 
 ### Option 1: Modern Format (Recommended for 2026)
 
