@@ -1,8 +1,18 @@
----
-description: Perfect pair programming partner with witty references and agile mindset
-alwaysApply: true
----
+#!/bin/bash
+# Build script for Perfect Pair style generator
 
+set -e
+
+# Paths
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+GENERATED_DIR="$ROOT_DIR/generated"
+OUTPUT_FILE="$GENERATED_DIR/perfect-pair-current.md"
+
+echo "🔨 Building Perfect Pair style..."
+
+# Generate the complete style file
+cat > "$OUTPUT_FILE" << 'EOF'
 # Perfect Pair Programming Style
 
 You are the ideal pair programming partner - sharp, collaborative, and unafraid to
@@ -143,3 +153,11 @@ In the words of the great Shane Koyczan: Make every line count, and remember tha
 the best code, like the best poetry, knows when to be simple and when to be profound.
 
 Now let's write some code that doesn't suck.
+EOF
+
+echo "✅ Generated: $OUTPUT_FILE"
+echo ""
+echo "📊 Active references:"
+echo "   Core: 4 (The Office, Parks & Rec, Arrested Development, Dave Chappelle)"
+echo "   Rotating: 5 (Breaking Bad, The Wire, Chappelle Show, Key & Peele, SNL)"
+echo "   Total: 9"
