@@ -11,153 +11,227 @@ Creates a custom programming partner that acts like your ideal pair, complete wi
 - Agile-minded thinking tuned to your preferences
 - A communication style that matches your vibe
 
-## Supported Editors
+## 🚀 Quick Start
 
-- ✅ **Cursor IDE** - Ready-to-use `.cursor/rules/` format + interactive skill (Cursor 2.4+)
-- ✅ **Claude Code** - Interactive skill that generates custom output styles
-
-## Installation
-
-### For Cursor IDE (Recommended)
-
-**See [`cursor-versions/CURSOR-README.md`](cursor-versions/CURSOR-README.md) for detailed instructions!**
-
-Quick start:
+### 1. Clone the Repo
 
 ```bash
-# From your project root
-mkdir -p .cursor/rules
-cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc .cursor/rules/
+git clone https://github.com/joethorngren/perfect-pair-creator.git
+cd perfect-pair-creator
 ```
 
-That's it! Cursor will automatically apply the rules.
-
-### For Claude Code
+### 2. Deploy to Your Editors
 
 ```bash
-# Copy the skill to your Claude skills directory
-cp -r skills/create-perfect-pair ~/.claude/skills/
+# Deploys to both Cursor (global) and Claude Code
+./scripts/sync.sh
 ```
 
-## Usage
+That's it! Perfect Pair is now active in:
+- ✅ **Cursor** - All projects automatically (`~/.cursor/rules/`)
+- ✅ **Claude Code** - All sessions automatically (`~/.claude/plugins/`)
 
-### Cursor IDE
+### 3. Customize Your References
 
-Once installed, the rules apply automatically! Your AI partner will:
-- Make witty references to The Office, Parks & Rec, Arrested Development, Chappelle Show, Key & Peele, and more
-- Push back constructively when needed
-- Keep you thinking agile
-- Actually have personality
+```bash
+# Edit your reference library
+open source/references.yaml  # or use any editor
 
-**Want to customize with YOUR favorites?** See [`cursor-versions/CUSTOMIZATION-TEMPLATE.md`](cursor-versions/CUSTOMIZATION-TEMPLATE.md)
+# Add your favorite shows to core or rotating_pool
 
-**For Cursor 2.4+:** Use the interactive skill - see [CURSOR-SKILLS-README.md](cursor-versions/CURSOR-SKILLS-README.md)
-
-### Claude Code
-
-Once installed, invoke the skill with:
-
-```
-/create-perfect-pair
+# Sync changes everywhere
+./scripts/sync.sh
 ```
 
-Or just ask Claude:
-- "Help me create a perfect pair style"
-- "I want to personalize my programming partner"
-- "Create a custom output style for me"
+## 📚 Documentation
 
-The skill will guide you through:
+- **[WORKFLOW.md](WORKFLOW.md)** - Daily workflow guide
+- **[CURSOR-README.md](cursor-versions/CURSOR-README.md)** - Cursor-specific details
+- **[CURSOR-SKILLS-README.md](cursor-versions/CURSOR-SKILLS-README.md)** - Cursor 2.4+ interactive skill
 
-1. **Listing your favorites** - TV shows, movies, comedians, other influences
-2. **Choosing your style** - Roast level, push-back intensity, agile mindset, formality
-3. **Generating your custom style** - A complete `.md` file tailored to you
-4. **Installing it** - Instructions on where to save and how to use it
+## 🎯 How It Works
 
-Takes about 5 minutes, and you can refine it anytime!
+### Single Source of Truth
+
+All your references live in one place:
+
+```
+source/references.yaml
+```
+
+Edit this file to add/remove shows, then run `./scripts/sync.sh` to deploy everywhere.
+
+### Reference Library System
+
+```yaml
+core:
+  # Always included - your absolute favorites
+  - name: "The Office"
+    usage: "Awkward code moments"
+    examples: ["Michael Scott's 'that's what she said'"]
+
+rotating_pool:
+  # Rotates in/out to manage context
+  - name: "Community"
+    usage: "Meta discussions"
+    examples: ["Cool cool cool"]
+```
+
+**Current**: All core + 5 rotating refs active (9 total)
+**Future**: Smart rotation when library grows beyond 15-20 refs
+
+### Build & Deploy
+
+```bash
+./scripts/sync.sh
+```
+
+This:
+1. Reads `source/references.yaml`
+2. Generates complete style from template
+3. Deploys to Cursor global rules
+4. Deploys to Claude Code plugin
+5. Updates repo version for sharing
 
 ## 🎭 Example Styles
 
 We've included **5 pre-made styles** with different personalities:
 
-1. **Original Perfect Pair** - Sharp wit, mix of comedy styles (The Office, Parks & Rec, Arrested Development, Chappelle Show, Key & Peele)
-2. **Office Comedy Fan** - Supportive, wholesome (The Office, Parks & Rec, Brooklyn Nine-Nine)
-3. **Sci-Fi Philosopher** - Logical, thoughtful (Star Trek, Doctor Who, The Expanse)
-4. **British Wit** - Dry, clever (IT Crowd, Monty Python, Blackadder)
-5. **Minimalist Zen** - Focused, no fluff (no references, pure clarity)
+1. **Original Perfect Pair** - Sharp wit, mix of comedy styles
+2. **Office Comedy Fan** - Supportive, wholesome
+3. **Sci-Fi Philosopher** - Logical, thoughtful
+4. **British Wit** - Dry, clever
+5. **Minimalist Zen** - Focused, no fluff
 
-**See all examples:** [`cursor-versions/modern/.cursor/rules/examples/`](cursor-versions/modern/.cursor/rules/examples/)
+See all: [`cursor-versions/modern/.cursor/rules/examples/`](cursor-versions/modern/.cursor/rules/examples/)
 
-Try different styles to find your perfect match, or use them as inspiration for your own!
+## ✏️ Adding References
 
-## Example
+### Method 1: Edit YAML Directly (Recommended)
 
-See `skills/create-perfect-pair/examples/sample-perfect-pair.md` for an example of what a generated style looks like.
+```bash
+# Edit the file
+open source/references.yaml
 
-## Customization After Creation
+# Add your show to core or rotating_pool
 
-Your generated style is just a markdown file - you can:
-- Edit it anytime to add new references
-- Adjust tone and communication style
-- Share it with others (they can adapt it to their preferences)
-- Version control it with your dotfiles
-- Create multiple variations for different contexts
+# Sync
+./scripts/sync.sh
+```
 
-## File Structure
+### Method 2: Use the Interactive Skill (Coming Soon)
+
+```bash
+# Claude Code
+/add-reference
+
+# Answer questions, it updates references.yaml for you
+```
+
+## 📁 File Structure
 
 ```
 perfect-pair-creator/
-├── README.md                                  # This file
-├── plugin.json                                # Plugin metadata for Claude Code
-├── cursor-versions/                           # Cursor IDE versions
-│   ├── CURSOR-README.md                       # Cursor setup guide
-│   ├── CURSOR-SKILLS-README.md                # Cursor 2.4+ skills guide
-│   ├── CUSTOMIZATION-TEMPLATE.md              # Manual customization template
-│   ├── modern/
-│   │   └── .cursor/rules/
-│   │       ├── perfect-pair.mdc               # Main style
-│   │       └── examples/                      # 4 additional example styles
-│   │           ├── office-comedy-fan.mdc
-│   │           ├── sci-fi-philosopher.mdc
-│   │           ├── british-wit.mdc
-│   │           └── minimalist-zen.mdc
-│   └── skills/                                # Cursor 2.4+ skill
-│       └── create-perfect-pair/
-│           ├── SKILL.md
-│           ├── templates/
-│           └── examples/
-└── skills/                                    # Claude Code skill
-    └── create-perfect-pair/
-        ├── SKILL.md
-        ├── templates/
-        └── examples/
+├── source/
+│   ├── references.yaml              # ✏️  Your reference library (EDIT THIS)
+│   └── perfect-pair-base.md         # Template
+├── scripts/
+│   ├── sync.sh                      # 🚀 Main command (build + deploy)
+│   ├── build.sh                     # Generate from references
+│   └── deploy.sh                    # Deploy to platforms
+├── generated/
+│   └── perfect-pair-current.md      # Auto-generated output
+├── cursor-versions/
+│   └── modern/.cursor/rules/        # Cursor formats
+└── skills/
+    └── create-perfect-pair/         # Claude Code skill
 ```
 
-## Requirements
+## 🔄 Reference Rotation (Coming Soon)
 
-**For Cursor:**
-- Cursor IDE (any version for pre-made rules, 2.4+ for interactive skill)
-- No other requirements!
+As your library grows, we'll automatically rotate references to manage context:
 
-**For Claude Code:**
-- Claude Code CLI
-- Basic familiarity with output styles (or just follow the instructions!)
+- Keep 4-5 core favorites always active
+- Rotate 5 others weekly from the pool
+- Smart rotation based on usage patterns
+- Keep context under control
 
-## Contributing
+## 💡 Common Workflows
 
-Have ideas for improving the generator? PRs welcome!
+### Daily: Add a New Show
 
-Ideas for enhancements:
-- Additional style templates (minimalist, verbose, emoji-heavy, etc.)
-- More configuration options
-- Pre-made style packs for common preferences
-- Community-contributed example styles
+```bash
+# 1. Edit
+open source/references.yaml
+# Add "Community" to rotating_pool
 
-## License
+# 2. Sync
+./scripts/sync.sh
+
+# Done! New references available everywhere
+```
+
+### Weekly: Update Rotating Refs (Future)
+
+```bash
+./scripts/rotate.sh
+```
+
+### Share with Team
+
+```bash
+git add source/references.yaml
+git commit -m "Added Community and 30 Rock"
+git push
+
+# Team pulls and syncs
+git pull && ./scripts/sync.sh
+```
+
+## 🎯 Installation Details
+
+### Cursor (Global)
+
+Deploys to `~/.cursor/rules/perfect-pair.mdc`
+- Works in all projects automatically
+- Can override per-project if needed
+
+### Claude Code (Plugin)
+
+Deploys to `~/.claude/plugins/user/perfect-pair-output-style/`
+- Applies to all sessions via SessionStart hook
+- Restart Claude Code to see changes
+
+## 🛠️ Requirements
+
+- Bash (for scripts)
+- Git (for cloning/updates)
+- Cursor IDE (any version)
+- Claude Code CLI (for Claude Code support)
+
+## 🤝 Contributing
+
+Have ideas? PRs welcome!
+
+Ideas:
+- Smart rotation implementation
+- Usage tracking
+- More pre-made styles
+- Integration with other AI tools
+
+## 📄 License
 
 MIT - Use it, share it, make it your own!
 
-## Credits
+## 🙏 Credits
 
 Created because coding should be fun, and your programming partner should get your jokes.
 
 Inspired by every dev who's ever said "I've made a huge mistake" while looking at their git diff.
+
+---
+
+**Quick Links:**
+- [Workflow Guide](WORKFLOW.md)
+- [Cursor Setup](cursor-versions/CURSOR-README.md)
+- [GitHub Repo](https://github.com/joethorngren/perfect-pair-creator)
