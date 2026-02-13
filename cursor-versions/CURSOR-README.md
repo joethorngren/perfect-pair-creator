@@ -16,13 +16,40 @@ Generate a custom style with YOUR favorite shows and preferences. Takes 5 minute
 
 ## Installation
 
+### Global Installation (Recommended)
+
+Install once, works in all projects:
+
+```bash
+# From the perfect-pair-creator directory
+./scripts/sync.sh
+
+# This deploys to ~/.cursor/rules/ (global)
+```
+
+Cursor will automatically detect and apply the rules to all projects!
+
+### Manual Global Installation
+
+```bash
+# Copy to Cursor's global rules directory
+mkdir -p ~/.cursor/rules
+cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc ~/.cursor/rules/
+```
+
+### Project-Specific Installation (Optional)
+
+If you want different styles per project:
+
 ```bash
 # From your project root
 mkdir -p .cursor/rules
 cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc .cursor/rules/
 ```
 
-Cursor will automatically detect and apply the rules!
+**Rule Priority:**
+- Project rules (`.cursor/rules/`) override
+- Global rules (`~/.cursor/rules/`) apply by default
 
 ## What You Get
 

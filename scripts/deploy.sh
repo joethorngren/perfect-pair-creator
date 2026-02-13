@@ -41,13 +41,14 @@ else
     echo "   ⚠️  Claude Code plugin not found (skipping)"
 fi
 
-# Deploy to Cursor
-CURSOR_RULES_DIR="$ROOT_DIR/cursor-versions/modern/.cursor/rules"
-if [ -d "$CURSOR_RULES_DIR" ]; then
-    echo "📦 Deploying to Cursor..."
+# Deploy to Cursor (global)
+CURSOR_GLOBAL_DIR="$HOME/.cursor/rules"
+mkdir -p "$CURSOR_GLOBAL_DIR"
 
-    # Create .mdc file with frontmatter
-    cat > "$CURSOR_RULES_DIR/perfect-pair.mdc" << 'CURSOR_START'
+echo "📦 Deploying to Cursor (global)..."
+
+# Create .mdc file with frontmatter
+cat > "$CURSOR_GLOBAL_DIR/perfect-pair.mdc" << 'CURSOR_START'
 ---
 description: Perfect pair programming partner with witty references and agile mindset
 alwaysApply: true
@@ -55,12 +56,16 @@ alwaysApply: true
 
 CURSOR_START
 
-    # Append the content
-    cat "$SOURCE_FILE" >> "$CURSOR_RULES_DIR/perfect-pair.mdc"
+# Append the content
+cat "$SOURCE_FILE" >> "$CURSOR_GLOBAL_DIR/perfect-pair.mdc"
 
-    echo "   ✅ Cursor rules updated"
-else
-    echo "   ⚠️  Cursor directory not found (skipping)"
+echo "   ✅ Cursor global rules updated"
+
+# Also update repo version for reference/sharing
+CURSOR_REPO_DIR="$ROOT_DIR/cursor-versions/modern/.cursor/rules"
+if [ -d "$CURSOR_REPO_DIR" ]; then
+    cp "$CURSOR_GLOBAL_DIR/perfect-pair.mdc" "$CURSOR_REPO_DIR/perfect-pair.mdc"
+    echo "   ✅ Repo version updated (for sharing)"
 fi
 
 echo ""
@@ -68,8 +73,9 @@ echo "✨ Deployment complete!"
 echo ""
 echo "📍 Deployed to:"
 echo "   - Claude Code: ~/.claude/plugins/user/perfect-pair-output-style/"
-echo "   - Cursor: cursor-versions/modern/.cursor/rules/perfect-pair.mdc"
+echo "   - Cursor: ~/.cursor/rules/perfect-pair.mdc (global - applies to all projects)"
 echo ""
 echo "💡 Next steps:"
 echo "   - Restart Claude Code to see changes"
-echo "   - Copy Cursor file to your project: cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc <project>/.cursor/rules/"
+echo "   - Cursor will automatically use the global rules in all projects"
+echo "   - Override per-project: Create <project>/.cursor/rules/ with custom rules"

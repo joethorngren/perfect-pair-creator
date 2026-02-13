@@ -105,13 +105,19 @@ cat generated/perfect-pair-current.md
 
 ### Use in Cursor
 
-```bash
-# Copy to your project
-cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc <your-project>/.cursor/rules/
+Good news - it's already deployed globally! The deploy script puts it at `~/.cursor/rules/` which applies to all your projects automatically.
 
-# Or create a symlink
-ln -s $(pwd)/cursor-versions/modern/.cursor/rules/perfect-pair.mdc <your-project>/.cursor/rules/perfect-pair.mdc
+**To override per-project:**
+```bash
+# Create project-specific rules that override global
+mkdir -p <your-project>/.cursor/rules
+code <your-project>/.cursor/rules/custom.mdc
 ```
+
+**Cursor rule priority:**
+1. Project rules (`.cursor/rules/` in project)
+2. Global rules (`~/.cursor/rules/`)
+3. Default behavior
 
 ## 🔄 Reference Rotation (Coming Soon)
 
