@@ -91,6 +91,20 @@ Once installed, the rules apply automatically! Your AI partner will:
 
 **Want to customize with YOUR favorites?** See [`cursor-versions/CUSTOMIZATION-TEMPLATE.md`](cursor-versions/CUSTOMIZATION-TEMPLATE.md)
 
+## 🎭 Example Styles
+
+We've included **5 pre-made styles** with different personalities:
+
+1. **Original Perfect Pair** - Sharp wit, dark comedy (Arrested Development, Breaking Bad, The Wire)
+2. **Office Comedy Fan** - Supportive, wholesome (The Office, Parks & Rec, Brooklyn Nine-Nine)
+3. **Sci-Fi Philosopher** - Logical, thoughtful (Star Trek, Doctor Who, The Expanse)
+4. **British Wit** - Dry, clever (IT Crowd, Monty Python, Blackadder)
+5. **Minimalist Zen** - Focused, no fluff (no references, pure clarity)
+
+**See all examples:** [`cursor-versions/legacy/examples/README.md`](cursor-versions/legacy/examples/README.md)
+
+Try different styles to find your perfect match, or use them as inspiration for your own!
+
 ## Example
 
 See `skills/create-perfect-pair/examples/sample-perfect-pair.md` for an example of what a generated style looks like (this one is based on Arrested Development, Breaking Bad, The Wire, Seinfeld, and various comedy icons).
