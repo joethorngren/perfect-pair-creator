@@ -5,7 +5,7 @@ Bring the perfect pair programming partner to Cursor IDE! This custom rules conf
 ## Two Ways to Use This
 
 ### 🎯 Pre-Made Rules (Any Cursor Version)
-Ready-to-use rules files with references to Arrested Development, Breaking Bad, The Wire, and more. Just copy and go! See installation below.
+Ready-to-use rules files with references to The Office, Parks & Rec, Arrested Development, Chappelle Show, Key & Peele, and more. Just copy and go! See installation below.
 
 ### 🎨 Interactive Skill Generator (Cursor 2.4+)
 Generate a custom style with YOUR favorite shows and preferences. Takes 5 minutes, completely personalized. See [CURSOR-SKILLS-README.md](CURSOR-SKILLS-README.md) for details.
@@ -14,11 +14,7 @@ Generate a custom style with YOUR favorite shows and preferences. Takes 5 minute
 
 ---
 
-## Installation (Pre-Made Rules)
-
-### Option 1: Modern Format (Recommended for 2026)
-
-The modern `.cursor/rules/` format is more flexible and version-control friendly.
+## Installation
 
 ```bash
 # From your project root
@@ -28,19 +24,10 @@ cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc .cursor/rules/
 
 Cursor will automatically detect and apply the rules!
 
-### Option 2: Legacy Format (Still Supported)
-
-The legacy `.cursorrules` file is simpler but less flexible.
-
-```bash
-# From your project root
-cp cursor-versions/legacy/.cursorrules .cursorrules
-```
-
 ## What You Get
 
 A pair programming partner who:
-- Makes references to Arrested Development, Breaking Bad, The Wire, Seinfeld, and more
+- Makes references to The Office, Parks & Rec, Arrested Development, Chappelle Show, Key & Peele, SNL, and more
 - Pushes back constructively when you're about to make a mistake
 - Points out future complexity before it bites you
 - Keeps things agile and iterative
@@ -53,7 +40,7 @@ Want to personalize it with YOUR favorite shows and references? Here's how:
 
 ### Quick Customization
 
-1. **Open the file** (`.cursorrules` or `.cursor/rules/perfect-pair.mdc`)
+1. **Open the file** (`.cursor/rules/perfect-pair.mdc`)
 2. **Find the "Make Smart References" section**
 3. **Replace the shows with your favorites:**
 
@@ -99,7 +86,7 @@ Want to tune the style even more? Adjust these sections:
 > "I'll implement the login functionality with JWT authentication. Let me create the authentication middleware first."
 
 **After (Perfect Pair):**
-> "Okay, so JWT auth - solid choice. Before we go full Heisenberg on this and build a perfect system, let's start with the basics. We'll do the middleware first, but fair warning: we're gonna need to think about token refresh soon or we'll have angry users faster than you can say 'I am the one who knocks.' Want to stub that out now or handle it in the next iteration?"
+> "Okay, so JWT auth - solid choice. Before we go full Leslie Knope and organize this into seventeen binders, let's start with the basics. We'll do the middleware first, but fair warning: we're gonna need to think about token refresh soon or we'll have angry users. Like, actual 'Chappelle Show keeping it real' moments. Want to stub that out now or handle it in the next iteration?"
 
 ## File Structure
 
@@ -109,10 +96,20 @@ Want to tune the style even more? Adjust these sections:
     └── perfect-pair.mdc    # Your custom rules
 ```
 
-Or for legacy:
+## 🎭 Try Other Styles
 
-```
-.cursorrules               # Your custom rules (project root)
+We've included 4 additional example styles in `cursor-versions/modern/.cursor/rules/examples/`:
+
+1. **Office Comedy Fan** - Supportive, wholesome (The Office, Parks & Rec, Brooklyn Nine-Nine)
+2. **Sci-Fi Philosopher** - Logical, thoughtful (Star Trek, Doctor Who, The Expanse)
+3. **British Wit** - Dry, clever (IT Crowd, Monty Python, Blackadder)
+4. **Minimalist Zen** - Focused, no fluff (no pop culture references)
+
+Try them out:
+
+```bash
+# Try a different style
+cp cursor-versions/modern/.cursor/rules/examples/office-comedy-fan.mdc .cursor/rules/perfect-pair.mdc
 ```
 
 ## Tips
@@ -125,7 +122,7 @@ Or for legacy:
 
 ## Sharing with Your Team
 
-The modern format (`.cursor/rules/`) is perfect for team sharing:
+The `.cursor/rules/` format is perfect for team sharing:
 
 ```bash
 # Add to git
@@ -183,8 +180,8 @@ When working on authentication and security:
 ## Troubleshooting
 
 **Rules not applying?**
-- Make sure the file is in the right location
-- Check that frontmatter is valid YAML (for modern format)
+- Make sure the file is in `.cursor/rules/`
+- Check that frontmatter is valid YAML
 - Restart Cursor
 
 **Too many references?**
@@ -201,7 +198,7 @@ When working on authentication and security:
 Check out these resources about Cursor rules:
 - [Cursor Rules Documentation](https://docs.cursor.com)
 - [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)
-- [.cursorrules.com](https://dotcursorrules.com)
+- [Cursor Forum - Skills](https://forum.cursor.com/t/cursor-2-4-skills/149402)
 
 ## License
 
