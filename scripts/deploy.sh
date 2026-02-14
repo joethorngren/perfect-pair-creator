@@ -38,15 +38,20 @@ cat > "$CLAUDE_PLUGIN_BASE/.claude-plugin/plugin.json" << 'PLUGIN_JSON'
 }
 PLUGIN_JSON
 
-# Write hooks config
+# Write hooks config (Claude Code plugin hook format)
 cat > "$CLAUDE_PLUGIN_BASE/hooks/hooks.json" << 'HOOKS_JSON'
 {
   "description": "Perfect Pair output style hook",
   "hooks": {
     "SessionStart": [
       {
-        "type": "command",
-        "command": "${CLAUDE_PLUGIN_ROOT}/hooks-handlers/session-start.sh"
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks-handlers/session-start.sh"
+          }
+        ]
       }
     ]
   }
@@ -54,17 +59,28 @@ cat > "$CLAUDE_PLUGIN_BASE/hooks/hooks.json" << 'HOOKS_JSON'
 HOOKS_JSON
 
 # Update the session-start.sh script with new content
+# Output must be JSON with hookSpecificOutput.additionalContext for Claude Code
 cat > "$CLAUDE_PLUGIN_BASE/hooks-handlers/session-start.sh" << 'SCRIPT_START'
-#!/bin/bash
+#!/usr/bin/env bash
 
-cat <<'EOF'
+cat << 'CONTENT_EOF' | python3 -c "
+import json, sys
+content = sys.stdin.read()
+result = {
+    'hookSpecificOutput': {
+        'hookEventName': 'SessionStart',
+        'additionalContext': content
+    }
+}
+print(json.dumps(result))
+"
 SCRIPT_START
 
 # Append the content (skipping the first line "# Perfect Pair...")
 tail -n +2 "$SOURCE_FILE" >> "$CLAUDE_PLUGIN_BASE/hooks-handlers/session-start.sh"
 
 cat >> "$CLAUDE_PLUGIN_BASE/hooks-handlers/session-start.sh" << 'SCRIPT_END'
-EOF
+CONTENT_EOF
 SCRIPT_END
 
 chmod +x "$CLAUDE_PLUGIN_BASE/hooks-handlers/session-start.sh"
