@@ -19,8 +19,9 @@ source/perfect-pair-base.md ┘
                               ↓
                     ┌─────────┴─────────┐
                     ↓                   ↓
-        ~/.cursor/rules/          ~/.claude/plugins/
-        perfect-pair.mdc          perfect-pair-output-style/
+        ~/.cursor/rules/              ~/.claude/plugins/
+        perfect-pair-{core,          perfect-pair-output-style/
+         references,agile}.mdc
 ```
 
 The system has three phases:
@@ -55,8 +56,11 @@ This design solves the context management problem: as users add more references,
 ### Dual Deployment Targets
 
 **Cursor (Global Rules)**
-- Deploys to: `~/.cursor/rules/perfect-pair.mdc`
-- Format: Markdown with YAML frontmatter
+- Deploys 3 files to `~/.cursor/rules/`:
+  - `perfect-pair-core.mdc` — philosophy + technical approach
+  - `perfect-pair-references.mdc` — communication style + references
+  - `perfect-pair-agile.mdc` — agile mindset
+- Format: Markdown with YAML frontmatter (`alwaysApply: true`)
 - Scope: All projects automatically
 - Can be overridden per-project in `.cursor/rules/`
 

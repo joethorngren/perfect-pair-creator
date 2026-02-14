@@ -129,7 +129,7 @@ ________________________________________________________________________
 
 ## Step 6: Apply Your Customizations
 
-Now edit your `.cursorrules` or `.cursor/rules/perfect-pair.mdc` file:
+Now edit your `.cursor/rules/perfect-pair-references.mdc` file:
 
 1. **Replace the "Core Philosophy" opening** with your version from Step 5
 2. **Replace the "Make Smart References" section** with your version from Step 3

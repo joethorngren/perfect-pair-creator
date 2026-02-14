@@ -164,8 +164,8 @@ code source/references.yaml
 # Restart Claude Code
 # Now "Community" references are available!
 
-# Copy to Cursor project
-cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc ~/projects/my-app/.cursor/rules/
+# Cursor rules are deployed globally by sync.sh
+# No need to copy per-project unless you want overrides
 
 # Code all day with your updated Perfect Pair! 🎉
 ```

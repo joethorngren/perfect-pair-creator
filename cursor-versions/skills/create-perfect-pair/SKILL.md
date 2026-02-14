@@ -9,7 +9,7 @@ This skill helps you create a personalized programming partner for Cursor IDE - 
 
 ## What This Creates
 
-A custom Cursor rules file (`.cursorrules` or `.cursor/rules/perfect-pair.mdc`) that acts as your pair programming partner with:
+A set of Cursor rules files (`.cursor/rules/perfect-pair-*.mdc`) that act as your pair programming partner with:
 - References to YOUR favorite cultural touchstones
 - The right balance of support vs. push-back
 - Playful roasting (as much or as little as you want)
@@ -94,9 +94,10 @@ Now let's tune the style. On a scale of 1-4, where do you want each of these?
 Once you provide your answers, I will:
 
 1. **Generate your custom rules file** with your specific references and style
-2. **Create both formats**:
-   - `.cursorrules` (legacy, works everywhere)
-   - `.cursor/rules/perfect-pair.mdc` (modern, Cursor 2.4+)
+2. **Create Cursor rules files**:
+   - `.cursor/rules/perfect-pair-core.mdc` (philosophy + technical approach)
+   - `.cursor/rules/perfect-pair-references.mdc` (communication style + references)
+   - `.cursor/rules/perfect-pair-agile.mdc` (agile mindset)
 3. **Show you where to save them** in your project
 4. **Provide examples** of what your new pair will sound like
 5. **Give you tips** for refinement

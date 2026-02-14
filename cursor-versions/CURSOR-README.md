@@ -34,7 +34,7 @@ Cursor will automatically detect and apply the rules to all projects!
 ```bash
 # Copy to Cursor's global rules directory
 mkdir -p ~/.cursor/rules
-cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc ~/.cursor/rules/
+cp cursor-versions/modern/.cursor/rules/perfect-pair-*.mdc ~/.cursor/rules/
 ```
 
 ### Project-Specific Installation (Optional)
@@ -44,7 +44,7 @@ If you want different styles per project:
 ```bash
 # From your project root
 mkdir -p .cursor/rules
-cp cursor-versions/modern/.cursor/rules/perfect-pair.mdc .cursor/rules/
+cp cursor-versions/modern/.cursor/rules/perfect-pair-*.mdc .cursor/rules/
 ```
 
 **Rule Priority:**
@@ -67,7 +67,7 @@ Want to personalize it with YOUR favorite shows and references? Here's how:
 
 ### Quick Customization
 
-1. **Open the file** (`.cursor/rules/perfect-pair.mdc`)
+1. **Open the file** (`.cursor/rules/perfect-pair-references.mdc`)
 2. **Find the "Make Smart References" section**
 3. **Replace the shows with your favorites:**
 
@@ -120,7 +120,9 @@ Want to tune the style even more? Adjust these sections:
 ```
 .cursor/
 └── rules/
-    └── perfect-pair.mdc    # Your custom rules
+    ├── perfect-pair-core.mdc        # Philosophy + technical approach
+    ├── perfect-pair-references.mdc  # Communication style + references
+    └── perfect-pair-agile.mdc       # Agile mindset
 ```
 
 ## 🎭 Try Other Styles
@@ -136,7 +138,7 @@ Try them out:
 
 ```bash
 # Try a different style
-cp cursor-versions/modern/.cursor/rules/examples/office-comedy-fan.mdc .cursor/rules/perfect-pair.mdc
+cp cursor-versions/modern/.cursor/rules/examples/office-comedy-fan.mdc .cursor/rules/perfect-pair-core.mdc
 ```
 
 ## Tips
@@ -169,9 +171,11 @@ Create different rule files for different contexts:
 ```
 .cursor/
 └── rules/
-    ├── perfect-pair.mdc        # Default partner
-    ├── serious-mode.mdc        # For production debugging
-    └── experimental.mdc        # For exploration
+    ├── perfect-pair-core.mdc        # Default partner (core)
+    ├── perfect-pair-references.mdc  # Default partner (references)
+    ├── perfect-pair-agile.mdc       # Default partner (agile)
+    ├── serious-mode.mdc             # For production debugging
+    └── experimental.mdc             # For exploration
 ```
 
 Use `alwaysApply: false` and specific `globs` to control when each activates:

@@ -4,7 +4,7 @@ For Cursor 2.4 and later, you can use the interactive skill to generate your own
 
 ## What's the Difference?
 
-**Rules** (`.cursorrules` / `.cursor/rules/`) - Always-on behavior
+**Rules** (`.cursor/rules/*.mdc`) - Always-on behavior
 - Pre-made personality based on specific shows/comedians
 - Works immediately, no setup
 - Good for: Quick start, sharing with team, consistent behavior
@@ -52,9 +52,8 @@ The skill will guide you through:
 3. **Other influences** - Poets, musicians, etc. (optional)
 4. **Style preferences** - Roast level, push-back style, agile intensity, formality
 
-Then it generates both:
-- `.cursorrules` (legacy format)
-- `.cursor/rules/perfect-pair.mdc` (modern format)
+Then it generates:
+- `.cursor/rules/perfect-pair-*.mdc` (Cursor rules format)
 
 With YOUR references and YOUR preferred communication style!
 
@@ -105,7 +104,7 @@ If you don't have Cursor 2.4, you can still:
 - Try restarting Cursor
 
 **Want to regenerate?**
-- Delete your existing `.cursorrules` or `.cursor/rules/perfect-pair.mdc`
+- Delete your existing `.cursor/rules/perfect-pair-*.mdc` files
 - Invoke the skill again with new answers
 
 **Prefer manual customization?**

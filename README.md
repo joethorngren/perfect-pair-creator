@@ -23,13 +23,24 @@ cd perfect-pair-creator
 ### 2. Deploy to Your Editors
 
 ```bash
-# Deploys to both Cursor (global) and Claude Code
+# Build from source + deploy to Cursor and Claude Code
 ./scripts/sync.sh
 ```
 
 That's it! Perfect Pair is now active in:
-- ✅ **Cursor** - All projects automatically (`~/.cursor/rules/`)
-- ✅ **Claude Code** - All sessions automatically (`~/.claude/plugins/`)
+- ✅ **Cursor** — 3 rules in `~/.cursor/rules/perfect-pair-{core,references,agile}.mdc`
+- ✅ **Claude Code** — plugin in `~/.claude/plugins/user/perfect-pair-output-style/`
+
+### First Time on a New Machine?
+
+```bash
+git clone https://github.com/joethorngren/perfect-pair-creator.git
+cd perfect-pair-creator
+./scripts/sync.sh   # builds + deploys everything
+```
+
+Requirements: bash, git. No other dependencies.
+Restart Claude Code after the first deploy. Cursor picks up rules automatically.
 
 ### 3. Customize Your References
 
@@ -192,7 +203,10 @@ git pull && ./scripts/sync.sh
 
 ### Cursor (Global)
 
-Deploys to `~/.cursor/rules/perfect-pair.mdc`
+Deploys 3 files to `~/.cursor/rules/`:
+- `perfect-pair-core.mdc` — philosophy + technical approach
+- `perfect-pair-references.mdc` — communication style + references
+- `perfect-pair-agile.mdc` — agile mindset
 - Works in all projects automatically
 - Can override per-project if needed
 
